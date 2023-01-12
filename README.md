@@ -59,9 +59,9 @@ https://smart-life-studio.tistory.com/170
 
 ## 푸쉬가 안될 시
 
-* 누군가가 push를 했을 경우 conflict 오류 발생
+* 누군가가 ``push``를 했을 경우 ``conflict`` 오류 발생
 
-* 푸쉬 하려는 브랜치를 pull 해서 최신버전으로 업데이트 후 push 하면 된다.
+* 푸쉬 하려는 브랜치를 ``pull`` 해서 최신버전으로 업데이트 후 ``push`` 하면 된다.
 
 ## 브랜치
 
