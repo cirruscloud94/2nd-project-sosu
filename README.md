@@ -50,11 +50,11 @@ https://smart-life-studio.tistory.com/170
 
 ## 프로젝트 푸쉬 하기
 
-1. 이클립스에서 상단 git 아이콘 클릭
+1. 이클립스에서 상단 ``git`` 아이콘 클릭
 
-2. unstaged chages 에서 staged chages로 옮기고 commit message를 작성한다.
+2. ``unstaged chages`` 에서 ``staged chages``로 옮기고 ``commit message``를 작성한다.
 
-3. commit & push 클릭
+3. ``commit & push`` 클릭
 
 
 ## 푸쉬가 안될 시
