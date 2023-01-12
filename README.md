@@ -1,7 +1,7 @@
 # 2nd-project-sosu
 > 소소한 서울 사람들의 모임.
 
-모임 중개 웹 플랫폼
+* 모임 중개 웹 플랫폼
 
 ![](../total-branch.png)
 
