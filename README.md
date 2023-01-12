@@ -5,6 +5,12 @@
 
 ![](../total-branch.png)
 
+## 먼저 git을 다운로드
+
+* ``git`` 다운로드
+* https://git-scm.com/
+
+
 ## 내 레포지토리에 저장하기
 
 ```
@@ -14,6 +20,8 @@
 ```
 자신의 레포지토리에 저장
 ```
+
+## 이클립스에 깃허브 연동
 
 ## 프로젝트 임포트 하기
 
@@ -42,28 +50,25 @@ https://smart-life-studio.tistory.com/170
 
 ## 프로젝트 푸쉬 하기
 
+1. 이클립스에서 상단 git 아이콘 클릭
 
+2. unstaged chages 에서 staged chages로 옮기고 commit message를 작성한다.
+
+3. commit & push 클릭
 
 ## 브랜치
 
-* master 브랜치는 완벽하게 배포 가능한 상태를 유지합니다.
+* ``master`` 브랜치는 완벽하게 배포 가능한 상태를 유지합니다.
 
-* develop 브랜치는 각자 작업한 기능을 ``merge`` 했을 때 오류가 없는 상태입니다.
+* ``develop`` 브랜치는 각자 작업한 기능을 ``merge`` 했을 때 오류가 없는 상태입니다.
 
-* feature/'기능이름' 브랜치로 각각 작업합니다. 필요가 없어지면 제거 합니다.
+* ``feature/'기능이름'`` 브랜치로 각각 작업합니다. 필요가 없어지면 제거 합니다.
 
-* hot-pix 브랜치는 master 또는 develop 브랜치로 ``merge``를 완료한 후 오류가 발생했을 시 급하게 고치는데 사용합니다.
+* ``hot-pix`` 브랜치는 ``master`` 또는 ``develop`` 브랜치로 ``merge``를 완료한 후 오류가 발생했을 시 급하게 고치는데 사용합니다.
 
 * 기본적으로 작업물은 본인의 레포지토리에 저장하고 하나의 기능을 완성하면 이곳의 레포지토리에 ``merge`` 하도록 합니다.
 
-* master 브랜치로의 ``merge``는 5명의 인원이 동의해야 가능합니다. (branch rule 기능)
-## 
-
-
-
-## 
-
-
+* ``master`` 브랜치로의 ``merge``는 5명의 인원이 동의해야 가능합니다. (branch rule 기능)
 
 <!-- Markdown link & img dfn's -->
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
