@@ -56,6 +56,13 @@ https://smart-life-studio.tistory.com/170
 
 3. commit & push 클릭
 
+
+## 푸쉬가 안될 시
+
+* 누군가가 push를 했을 경우 conflict 오류 발생
+
+* 푸쉬 하려는 브랜치를 pull 해서 최신버전으로 업데이트 후 push 하면 된다.
+
 ## 브랜치
 
 * ``master`` 브랜치는 완벽하게 배포 가능한 상태를 유지합니다.
