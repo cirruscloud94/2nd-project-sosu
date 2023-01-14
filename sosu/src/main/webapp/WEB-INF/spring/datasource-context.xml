@@ -23,5 +23,10 @@
 				<property name="sqlPrefix" value="SQL	: "/><!-- 출력 쿼리문 앞에 붙일 문장 -->
 			</bean>
 		</property>
+		
 	</bean>
+	
+	
+	
+	
 </beans>
