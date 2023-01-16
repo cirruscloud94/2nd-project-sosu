@@ -3,45 +3,164 @@
 
 <mapper namespace="freeboard">
 	
-	<!--  -->	
-	<select id="e" resultType="hashmap" parameterType="hashmap">
-		
-		SELECT 
-				
-		FROM 
-				
-		WHERE 
-						
+	<!-- 자유게시판 -->	
+	<select id="freeList" resultType="hashmap" parameterType="hashmap">
+		<![CDATA[
+		select fr.fr_title, 
+		f_svname, count(Z.Z_ARTICLE) c
+		from free fr
+		left join file_t f 
+		on f.F_ARTICLE = fr.fr_idx
+		left join zzim z
+		on z.Z_ARTICLE = fr.fr_idx
+		where fr_category = #{fr_category}
+		and f.f_table = 'F'
+		and f.f_main_yn='Y' 
+		and Z.Z_TABLE = 'F'
+		group by fr.fr_title, 
+		f_svname,z.Z_ARTICLE
+		 ]]>		
 	</select>
 	
-	<!--  -->
-	<insert id="f" parameterType="hashmap">
+	<!-- 자유게시판 프로필  -->	
+	<select id="freeMemberList" resultType="hashmap" parameterType="hashmap">
+		<![CDATA[
+		select f.f_svname , m.m_nickname
+		from member m, file_t f ,free fr
+		where f.f_table(+) = 'P' 
+		and f.f_article(+) = m.m_idx 
+		and f.f_del_yn(+) = 'N' 
+		and fr.m_idx = m.m_idx 
+		and f.f_main_yn(+) = 'Y'
+		order by fr.fr_idx
+		 ]]>		
+	</select>
 	
-		INSERT INTO 
+<!-- 	자유게시판 등록 -->
+<insert id="insertFree" parameterType="hashmap">
+        <![CDATA[
+                insert into FREE
+                (
+            M_IDX,
+			FR_TITLE,
+			FR_CONTENT,
+			FR_CATEGORY,
+			FR_REGDATE,
+			RE_MOD_YN,
+			FR_DEL_YN,
+			FR_WRITER,
+			FR_COUNT
+                )
+                VALUES
+                (
+                        FR_IDX.nextval,
+                        #{M_IDX},
+                        #{FR_TITLE},
+                        #{FR_CONTENT},
+                        #{FR_CATEGORY},
+                        sysdate,
+                        'N',
+						'N',
+						#{FR_WRITER},
+						#{FR_COUNT},
+                        sysdate
+                )
+        ]]>
+</insert>
+
+<!-- 자유게시판 등록의 파일등록 -->
+<insert id="insertFreeFile" parameterType="hashmap">
+        <![CDATA[
+                insert into FREE
+                (
+            F_IDX,
+			F_TABLE,
+			F_ARTICLE,
+			F_OGNAME,
+			F_SVNAME,
+			F_SIZE,
+			F_MAIN_YN,
+			F_DEL_YN,
+			F_REG_DATE
+                )
+                VALUES
+                (
+                        F_IDX.nextval,
+                        'F',
+                        #{F_ARTICLE},
+                        #{F_OGNAME},
+                        #{F_SVNAME},
+                        #{F_SIZE},
+                        'N',
+						'N',
+                        sysdate
+                )
+        ]]>
+</insert>
+	
+	<!-- 자유게시판 파일 수정 -->
+	<update id="updateFreeFile" parameterType="hashmap">
+				<![CDATA[		
+						UPDATE FILE_T
 				
-				VALUES
-				(
-						)
-	</insert>
-	
-	<!--  -->
-	<update id="g" parameterType="hashmap">
-	
-        UPDATE 
-        		
-		SET 
-				
-		WHERE 
-				    
+				SET 
+						F_OGNAME = #{F_OGNAME},
+						F_SVNAME = #{F_SVNAME},
+						F_SIZE = #{F_SIZE},
+						F_MAIN_YN = #{F_MAIN_YN},
+						F_REG_DATE = sysdate						
+				WHERE 
+						F_IDX = #{F_IDX}
+						and F_TABLE = #{F_TABLE}
+				]]>   
 	</update>
 	
-	<!--  -->
-	<delete id="h" parameterType="hashmap">
+	 <!-- 자유게시판  수정 -->
+	<update id="updateFree" parameterType="hashmap">
+				<![CDATA[		
+						UPDATE FREE
+				
+				SET 
+						FR_TITLE = #{FR_TITLE},
+						FR_CONTENT = #{FR_CONTENT},
+						RE_MOD_YN = 'Y'
+						FR_REGDATE = sysdate
+												
+				WHERE 
+						FR_IDX = #{FR_IDX}
+						and M_IDX = #{M_IDX}
+				]]>   
+	</update>
 	
-    	DELETE FROM  
-        		
-        WHERE 
-       
-	</delete>
-
-</mapper>
+	 <!-- 자유게시판  삭제 -->
+	<update id="deleteFree" parameterType="hashmap">
+				<![CDATA[		
+						UPDATE FREE
+				
+				SET 
+						FR_DEL_YN = 'Y'
+						
+												
+				WHERE 
+						FR_IDX = #{FR_IDX}
+						and M_IDX = #{M_IDX}
+				]]>   
+	</update>
+	
+	 <!-- 자유게시판 이미지  삭제 -->
+	<update id="deleteFreeFile" parameterType="hashmap">
+				<![CDATA[		
+						UPDATE FILE_T
+				
+				SET 
+						F_DEL_YN = 'Y'
+						
+												
+				WHERE 
+						F_TABLE = 'F'
+						F_ARTICLE = #{F_ARTICLE}
+						
+				]]>   
+	</update>
+	</mapper>
+	

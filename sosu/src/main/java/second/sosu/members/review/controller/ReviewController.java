@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,5 +27,13 @@ public class ReviewController {
 		ModelAndView mv = new ModelAndView("/members/review/review");
 	  
 		return mv; 
+	}
+//	리뷰작성폼
+	@GetMapping("/members/reviewForm")
+	public ModelAndView insertReview(CommandMap commandMap, HttpSession session) throws Exception {
+		
+		ModelAndView mv = new ModelAndView("/members/review/reviewForm");
+		
+		return mv;
 	}
 }
