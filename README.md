@@ -89,11 +89,12 @@ https://song8420.tistory.com/138
 * 기본적으로 작업물은 본인의 레포지토리에 저장하고 하나의 기능을 완성하면 이곳의 레포지토리에 ``merge`` 하도록 합니다.
 
 * master 브랜치로의 ``merge``는 5명의 인원이 동의해야 가능합니다. (branch rule 기능)
-## 
 
+## 브랜치에서 다른 브랜치로 ``merge`` 할때
 
+1. ``git repositories`` 에서 프로젝트 우클릭 -> ``push branch...`` 선택
 
-## 
+2. ``commit&push`` 할 브랜치 지정 후 ``merge`` 진행
 
 
 
