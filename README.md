@@ -44,6 +44,12 @@ https://smart-life-studio.tistory.com/170
 
 1. ``window`` ▶ ``show view`` ▶ ``other..`` 에서 ``git`` 선택 또는 우측 상단 ``git`` 아이콘 클릭
 
+![gitpush1](https://user-images.githubusercontent.com/88194803/212643653-0321d174-79c1-4da5-9f0f-650379c51fec.JPG)
+
+![gitpush2](https://user-images.githubusercontent.com/88194803/212643664-1233e52d-454a-40d3-879e-e0a99dc38af4.JPG)
+
+![gitpush3](https://user-images.githubusercontent.com/88194803/212643668-baf9c575-3e99-432d-b557-55e6ac397604.JPG)
+
 2. ``git staging`` 에서 커밋&푸쉬할 파일 선택 -> 커밋 메세지 작성(자세하게 작성) 후 ``commit and push`` 버튼 클릭
 
 
@@ -52,6 +58,7 @@ https://smart-life-studio.tistory.com/170
 1. https://github.com/cirruscloud94/2nd-project-sosu.git 공용 레포지토리로 들어가서 ``Pull requests`` 탭 선택 
 
 2. ``New pull reqeust`` 선택 ``compare across forks`` 링크를 누르면 내 fork에서 공용 레포지토리로 풀리퀘스트 가능
+![pullrequest1](https://user-images.githubusercontent.com/88194803/212643670-6a53f6a5-093e-4917-beb4-63ec9f078207.JPG)
 
 3. 커밋할 레포지토리와 브랜치랑 내 fork 레포지토리와 브랜치를 선택 후 ``create pull request`` 클릭
 
