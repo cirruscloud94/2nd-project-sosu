@@ -40,9 +40,35 @@
 
 https://smart-life-studio.tistory.com/170
 
-## 프로젝트 푸쉬 하기
+## 프로젝트 본인의 레포지토리에 푸쉬 하기
+
+1. ``window`` ▶ ``show view`` ▶ ``other..`` 에서 ``git`` 선택 또는 우측 상단 ``git`` 아이콘 클릭
+
+2. ``git staging`` 에서 커밋&푸쉬할 파일 선택 -> 커밋 메세지 작성(자세하게 작성) 후 ``commit and push`` 버튼 클릭
 
 
+## 공용 레포지토리에 변경사항 커밋하기
+
+1. https://github.com/cirruscloud94/2nd-project-sosu.git 공용 레포지토리로 들어가서 ``Pull requests`` 탭 선택 
+
+2. ``New pull reqeust`` 선택 ``compare across forks`` 링크를 누르면 내 fork에서 공용 레포지토리로 풀리퀘스트 가능
+
+3. 커밋할 레포지토리와 브랜치랑 내 fork 레포지토리와 브랜치를 선택 후 ``create pull request`` 클릭
+
+4. 수정할 권한이 있는 멤버들의 검토 후 ``merge pull reqeust`` 커밋 완료
+
+https://seungwubaek.github.io/tools/git/contributing_using_pull_request/
+https://ondemand.tistory.com/264
+https://fomaios.tistory.com/entry/Git-Github-%EA%B0%99%EC%9D%80-%EC%A0%80%EC%9E%A5%EC%86%8C-%ED%95%A8%EA%BB%98-%EC%93%B0%EA%B8%B0feat%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0
+
+## 커밋 오류 발생시
+
+1. 우측 상단 ``git`` 아이콘 선택 후 프로젝트 우클릭 -> ``pull`` 선택해서 최신 버전으로 업데이트
+
+2. 공용 레포지토리에 커밋 오류 발생시) 우측 상단 ``git`` 아이콘 선택 후 프로젝트 우클릭 -> ``switch to`` ▶ 커밋하려는 브랜치 선택 ▶ ``pull`` 업데이트
+
+* git pull 충돌 시
+https://song8420.tistory.com/138
 
 ## 브랜치
 
