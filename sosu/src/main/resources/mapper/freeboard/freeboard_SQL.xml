@@ -4,7 +4,7 @@
 <mapper namespace="freeboard">
 	
 	<!-- 자유게시판 -->	
-	<select id="FreeList" resultType="hashmap" parameterType="hashmap">
+	<select id="freeList" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[
 		select fr.fr_title, 
 		f_svname, count(Z.Z_ARTICLE) c
@@ -23,7 +23,7 @@
 	</select>
 	
 	<!-- 자유게시판 프로필  -->	
-	<select id="FreeMemberList" resultType="hashmap" parameterType="hashmap">
+	<select id="freeMemberList" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[
 		select f.f_svname , m.m_nickname
 		from member m, file_t f ,free fr
@@ -99,7 +99,7 @@
 </insert>
 	
 	<!-- 자유게시판 파일 수정 -->
-	<update id="UpdateFreeFile" parameterType="hashmap">
+	<update id="updateFreeFile" parameterType="hashmap">
 				<![CDATA[		
 						UPDATE FILE_T
 				
@@ -116,7 +116,7 @@
 	</update>
 	
 	 <!-- 자유게시판  수정 -->
-	<update id="UpdateFree" parameterType="hashmap">
+	<update id="updateFree" parameterType="hashmap">
 				<![CDATA[		
 						UPDATE FREE
 				
@@ -133,7 +133,7 @@
 	</update>
 	
 	 <!-- 자유게시판  삭제 -->
-	<update id="DeleteFree" parameterType="hashmap">
+	<update id="deleteFree" parameterType="hashmap">
 				<![CDATA[		
 						UPDATE FREE
 				
@@ -148,7 +148,7 @@
 	</update>
 	
 	 <!-- 자유게시판 이미지  삭제 -->
-	<update id="DeleteFreeFile" parameterType="hashmap">
+	<update id="deleteFreeFile" parameterType="hashmap">
 				<![CDATA[		
 						UPDATE FILE_T
 				
