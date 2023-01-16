@@ -119,8 +119,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-
-#OracleDB
-datasource-context.xml/
+# 쓸데없는 폴더 제외
+javaSJ/
+target/
+*.MF
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
