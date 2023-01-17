@@ -38,7 +38,7 @@
       <![CDATA[
          SELECT M_EMAIL
          FROM MEMBER
-         WHERE M_NAME=#{M_NAME} AND M_PHONE=#{M_PHONE} AND M_QUE={M_QUE} AND M_ANS=#{M_ANS}
+         WHERE M_NAME=#{M_NAME} AND M_PHONE=#{M_PHONE} AND M_QUE=#{M_QUE} AND M_ANS=#{M_ANS}
     ]]>
    </select>
    
@@ -52,7 +52,7 @@
    </select>
    
    <!-- 마이페이지 : 내 정보 수정 -->
-   <update id="mapageModify" parameterType="hashmap">
+   <update id="mypageModify" parameterType="hashmap">
       <![CDATA[
          UPDATE MEMBER
          SET M_NICKNAME=#{M_NICKNAME}, M_PW=#{M_PW}, M_PHONE=#{M_PHONE}, M_QUE=#{M_QUE}, M_ANS=#{M_ANS}
@@ -64,7 +64,7 @@
    <update id="mypageDelete" parameterType="hashmap">
       <![CDATA[
        UPDATE MEMBER SET M_DEL_YN='Y', M_GENDER=0, M_NAME=' ', M_NICKNAME=' ', M_EMAIL=' ', M_PW=' ', M_PHONE=' ', M_JUMIN=' ', M_QUE=' ', M_ANS=' '
-      WHERE M_IDX=#{M_IDX};
+      WHERE M_IDX=#{M_IDX}
     ]]>
    </update>   
    
@@ -91,7 +91,7 @@
       <![CDATA[
        SELECT ROUND(AVG(RV_STAR))
       FROM MOIM M, REVIEW R 
-      WHERE M.M_IDX=#{M_IDX} AND RV_MO_IDX=M.MO_IDX ;
+      WHERE M.M_IDX=#{M_IDX} AND RV_MO_IDX=M.MO_IDX
     ]]>
    </select>
    
@@ -105,7 +105,7 @@
    <!-- 마이페이지 : 개설한 모임 상세 내용 -->
    <select id="mypageOpenMoim" resultType="hashmap" parameterType="hashmap">
       <![CDATA[
-         SELECT MO_TITLE, MO_DETAILREGION, MO_DETAILCATEGORY, MO_COST, MO_MAXPEOPLE
+      SELECT MO_TITLE, MO_DETAILREGION, MO_DETAILCATEGORY, MO_COST, MO_MAXPEOPLE,MO_IDX
       FROM MOIM
       WHERE M_IDX=#{M_IDX}
       ORDER BY MO_REGDATE DESC
@@ -124,8 +124,8 @@
    <!-- 마이페이지 : 참여한 모임 개수 -->
    <select id="mypagePartyMoimCount" resultType="hashmap" parameterType="hashmap">
       <![CDATA[
-         SELECT COUNT(*) FROM
-         PARTYMEM P, MOIM M
+         SELECT COUNT(*) 
+         FROM PARTYMEM P, MOIM M
       WHERE P.M_IDX=#{M_IDX} AND P.P_BAN_YN='N' AND P.P_FINAL_YN='Y' AND P.MO_IDX=M.MO_IDX
     ]]>
    </select>
@@ -145,7 +145,7 @@
       <![CDATA[
          SELECT COUNT(*)
       FROM PARTYMEM P, MOIM M, REVIEW R
-      WHERE R.RV_M_IDX=#{RV_M_IDX} AND P.P_BAN_YN='N'AND P.P_FINAL_YN='Y' AND M.MO_IDX = R.RV_MO_IDX AND P.M_IDX=R.RV_M_IDX AND M.MO_IDX=P.MO_IDX
+      WHERE R.RV_M_IDX=#{M_IDX} AND P.P_BAN_YN='N'AND P.P_FINAL_YN='Y' AND M.MO_IDX = R.RV_MO_IDX AND P.M_IDX=R.RV_M_IDX AND M.MO_IDX=P.MO_IDX
     ]]>
    </select>
    
@@ -163,7 +163,7 @@
       <![CDATA[
          SELECT M.MO_TITLE, M.MO_REGDATE, R.RV_STAR, R.RV_CONTENT, R.RV_M_IDX
       FROM PARTYMEM P, MOIM M, REVIEW R
-      WHERE R.RV_M_IDX=#{RV_M_IDX} AND P.P_BAN_YN='N'AND P.P_FINAL_YN='Y' AND M.MO_IDX = R.RV_MO_IDX AND P.M_IDX=R.RV_M_IDX AND M.MO_IDX=P.MO_IDX
+      WHERE R.RV_M_IDX=#{M_IDX} AND P.P_BAN_YN='N'AND P.P_FINAL_YN='Y' AND M.MO_IDX = R.RV_MO_IDX AND P.M_IDX=R.RV_M_IDX AND M.MO_IDX=P.MO_IDX
       ORDER BY R.RV_REGDATE DESC
    ]]>
    </select>
@@ -178,15 +178,6 @@
     ]]>
    </select>
    
-   <!-- 마이페이지 : 자유게시판 찜 개수 -->
-   <select id="mypageZzimFreeCount" resultType="hashmap" parameterType="hashmap">
-      <![CDATA[
-       SELECT Z.Z_IDX, Z.M_IDX, Z.Z_ARTICLE, Z.Z_TABLE, F.FR_IDX, F.FR_TITLE, F.FR_CATEGORY, F.FR_REGDATE, F.FR_WRITER, F.FR_COUNT, M.M_PRIVATE
-      FROM ZZIM Z, FREE F, MEMBER M
-      WHERE Z.M_IDX=#{M_IDX} AND Z.Z_TABLE='F' AND Z.Z_ARTICLE=F.FR_IDX AND Z.M_IDX=M.M_IDX
-    ]]>
-   </select>
-   
    <!-- 마이페이지 : 모임 찜 개수 -->
    <select id="mypageZzimMoimCount" resultType="hashmap" parameterType="hashmap">
       <![CDATA[
@@ -196,8 +187,8 @@
     ]]>
    </select>
    
-   <!-- 마이페이지 : 자유게시판 찜 -->
-   <select id="mypageZzimFree" resultType="hashmap" parameterType="hashmap">
+   <!-- 마이페이지 : 자유게시판 찜 개수 -->
+   <select id="mypageZzimFreeCount" resultType="hashmap" parameterType="hashmap">
       <![CDATA[
        SELECT COUNT(*)
       FROM ZZIM Z, FREE F
@@ -213,6 +204,15 @@
       FROM ZZIM Z, MOIM M, MEMBER MEM
       WHERE Z.M_IDX=#{M_IDX} AND Z.Z_TABLE='M' AND Z.Z_ARTICLE=M.MO_IDX AND Z.M_IDX=MEM.M_IDX
       ORDER BY M.MO_REGDATE DESC
+    ]]>
+   </select>
+   
+   <!-- 마이페이지 : 자유게시판 찜 -->
+   <select id="mypageZzimFree" resultType="hashmap" parameterType="hashmap">
+      <![CDATA[
+       SELECT Z.Z_IDX, Z.M_IDX, Z.Z_ARTICLE, Z.Z_TABLE, F.FR_IDX, F.FR_TITLE, F.FR_CATEGORY, F.FR_REGDATE, F.FR_WRITER, F.FR_COUNT, M.M_PRIVATE
+      FROM ZZIM Z, FREE F, MEMBER M
+      WHERE Z.M_IDX=#{M_IDX} AND Z.Z_TABLE='F' AND Z.Z_ARTICLE=F.FR_IDX AND Z.M_IDX=M.M_IDX
     ]]>
    </select>
    
@@ -280,7 +280,7 @@
    <!-- 신고하기 -->
    <!-- <insert id="profileRegister" parameterType="hashmap">
       INSERT INTO REPORT (R_IDX, R_MEM, R_REASON, R_REPORTEDMEM, R_COUNT, R_DATE, R_DETAIL, R_DEL_YN)
-      VALUES (R_IDX.NEXTVAL, #{R_MEM}, #{R_REASON}, #{M_IDX}, 1, SYSDATE, #{R_DETAIL}, 'N');
+      VALUES (R_IDX.NEXTVAL, #{R_MEM}, #{R_REASON}, #{M_IDX}, 1, SYSDATE, #{R_DETAIL}, 'N')
    </insert> -->
    
    <!-- 사진 이미지 가져오기 : 프로필, 모임, 자유게시판, 리뷰 등 메인 사진 -->

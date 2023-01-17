@@ -16,7 +16,10 @@
    <div>이메일</div><input type="text" name="M_EMAIL"  id="m_email">
    <div>비밀번호</div><input type="password" name="M_PW"  id="m_pw">
    
-   <input type="submit" value="로그인" id="loginform">
+   <input type="submit" value="로그인" id="loginform"> <br/>
+   
+   <a href="/findidform">아이디찾기</a>
+   <a href="/findpwform">비밀번호 찾기</a>
 </form>
 
 

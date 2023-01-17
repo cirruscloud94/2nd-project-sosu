@@ -18,13 +18,15 @@
       
       <div>이메일(아이디)</div><input type="text" name="M_EMAIL">
       
-      <div>비밀번호</div><input type="text" name="M_PW">
+      <div>비밀번호</div><input type="password" name="M_PW">
       
-      <div>비밀번호 확인</div><input type="text" name="M_PW2">
+      <div>비밀번호 확인</div><input type="password" name="M_PW2">
       
       <div>휴대전화</div><input type="text" name="M_PHONE">
       
-      <div>주민등록번호</div><input type="text" name="M_JUMIN" maxlength="6"><input type="text" name="M_GENDER" maxlength="1">
+      <div>주민등록번호</div>
+      <input type="text" name="M_JUMIN" maxlength="6">
+      <input type="password" name="M_GENDER" maxlength="1">
       
       <div>질문</div>
       <select name="M_QUE">
