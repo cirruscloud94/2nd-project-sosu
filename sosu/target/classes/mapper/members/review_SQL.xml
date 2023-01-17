@@ -128,40 +128,38 @@
 	<insert id="insertReview" parameterType="hashmap">
 	
 		INSERT INTO 
-				REVIEW
-						*
-				VALUES
-				(
-					RV_IDX.NEXTVAL,
-					#{rv_m_idx}, 
-					#{rv_mo_idx},
-					#{rv_content},
-					sysdate,
-					#{rv_title},
-					'N',
-					#{rv_star}
-								)
+					REVIEW
+		VALUES
+		(
+			RV_IDX.NEXTVAL,
+			#{rv_m_idx}, 
+			#{rv_mo_idx},
+			#{rv_content},
+			sysdate,
+			#{rv_title},
+			'N',
+			#{rv_star}
+						)
 	
 	</insert>
 	
 	<!-- 리뷰 사진 파일 등록 -->
 	<insert id="insertPhotoReview" parameterType="hashmap">
 	
-		INSERT ALL INTO 
-				FILE_T
-						*
-				VALUES
-				(
-					F_IDX.NEXTVAL, 
-					'F', 
-					#{rv_idx}, 
-					#{f_ogname}, 
-					#{f_svname}, 
-					#{f_size}, 
-					'N', 
-					'N', 
-					sysdate
-							)
+		INSERT INTO 
+					FILE_T
+		VALUES
+		(
+			F_IDX.NEXTVAL, 
+			'F', 
+			#{rv_idx}, 
+			#{f_ogname}, 
+			#{f_svname}, 
+			#{f_size}, 
+			'N', 
+			'N', 
+			sysdate
+					)
 	
 	</insert>
 	

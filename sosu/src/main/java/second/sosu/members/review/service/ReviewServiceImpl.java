@@ -23,13 +23,13 @@ public class ReviewServiceImpl implements ReviewService{
 
 	//리뷰 페이징 리스트
 	@Override 
-	public Map<String, Object>selectReview(Map<String, Object> map, HttpSession session) throws Exception {
+	public Map<String, Object> selectReview(Map<String, Object> map, HttpSession session) throws Exception {
 		
 		return reviewDAO.selectReview(map);
 	  }
 
 	@Override
-	public void insertReview(Map<String, Object> map, HttpSession session) throws Exception {
+	public void insertReview(Map<String, Object> map) throws Exception {
 		
 		reviewDAO.insertReview(map);
 	}
