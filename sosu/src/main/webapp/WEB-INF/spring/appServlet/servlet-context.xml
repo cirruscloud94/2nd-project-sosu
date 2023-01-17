@@ -46,4 +46,6 @@
 	
 	<!-- 빈 스캔 패키지 -->
 	<context:component-scan base-package="second.sosu" />
+	
+	
 </beans>
