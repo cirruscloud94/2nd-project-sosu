@@ -122,5 +122,7 @@ $RECYCLE.BIN/
 # 쓸데없는 폴더 제외
 javaSJ/
 target/
+*.MF
+*.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
