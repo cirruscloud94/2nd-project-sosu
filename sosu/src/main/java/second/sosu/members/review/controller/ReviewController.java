@@ -21,21 +21,6 @@ public class ReviewController {
 	@Resource(name="reviewService")
 	private ReviewService reviewService;
 	
-	/** 리뷰 페이징 리스트
-	 * 
-	 * @param commandMap
-	 * @param session
-	 * @throws Exception
-	 * @return
-	 * @author seungju han
-	 */
-	@RequestMapping("/members/review") 
-	public ModelAndView reviewList(CommandMap commandMap, HttpSession session) throws Exception {
-		
-		ModelAndView mv = new ModelAndView("/members/review/review");
-		
-		return mv; 
-	}
 	
 	/** 리뷰 작성폼
 	 * 

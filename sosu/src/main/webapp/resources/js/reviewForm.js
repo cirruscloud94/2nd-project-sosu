@@ -1,12 +1,20 @@
-$(function() {
-    function check() 
+function check() 
     {
+        let title = document.querySelector("#rv_title").value; // 제목
         let contents = document.querySelector("#rv_content").value; //내용
         let Category = $('#rate1');
+
+        if(title == "" || title == null)
+        {
+            alert('제목을 입력해주세요.');
+            
+            return false;
+        }
     
         if (contents == "" || contents == null) 
         {
             alert("리뷰를 작성해주세요.");
+
             return false;
         }
     
@@ -16,5 +24,4 @@ $(function() {
             
             return false;
         }
-    }	  
-});
+    }
