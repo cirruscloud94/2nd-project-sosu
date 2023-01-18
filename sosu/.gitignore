@@ -123,5 +123,6 @@ $RECYCLE.BIN/
 javaSJ/
 target/
 *.MF
+*.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
